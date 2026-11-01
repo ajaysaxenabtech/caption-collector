@@ -1,0 +1,14 @@
+{
+  "name": "caption-collector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local OCR capture of meeting captions",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@tesseract.js-data/eng": "^1.0.0",
+    "tesseract.js": "^6.0.1"
+  }
+}

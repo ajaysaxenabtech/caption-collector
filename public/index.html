@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caption Collector</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">LOCAL MEETING TOOL</p>
+        <h1>Caption Collector</h1>
+        <p>Capture the caption area from a Teams window and save a growing text transcript on this computer.</p>
+      </div>
+      <span id="status" class="badge">Ready</span>
+    </header>
+
+    <section class="card controls">
+      <div class="steps">
+        <span>1. Open Teams captions</span><span>2. Choose the Teams window</span>
+        <span>3. Adjust the caption area if needed</span><span>4. Start reading</span>
+      </div>
+      <div class="buttons">
+        <button id="choose">Choose window</button>
+        <button id="start" disabled>Start reading captions</button>
+        <button id="stop" disabled>Stop & save</button>
+        <button id="download" disabled>Download transcript</button>
+        <button id="raw" disabled>Download raw OCR</button>
+      </div>
+      <p class="hint">Use a regular Edge or Chrome window; the embedded agent browser cannot show the sharing picker. The lower part of the selected Teams window is chosen automatically. Drag a tighter box over captions if needed. Keep both windows visible.</p>
+    </section>
+
+    <section class="card">
+      <div class="section-heading"><h2>Window preview</h2><span id="region">Choose a window, then select the caption area</span></div>
+      <div class="preview-wrap"><canvas id="preview" aria-label="Preview of selected window; drag to select caption area"></canvas></div>
+      <video id="source" autoplay muted playsinline hidden></video>
+    </section>
+
+    <section class="card">
+      <div class="section-heading"><h2>Saved text</h2><span id="count">0 lines</span></div>
+      <pre id="transcript">The transcript will appear here as caption lines finish.</pre>
+      <button id="copy" disabled>Copy summary request</button>
+      <p class="hint">The transcript is also saved automatically in the <code>sessions</code> folder. OCR may misread words; review the file before relying on it.</p>
+    </section>
+  </main>
+  <script src="/vendor/tesseract.min.js"></script>
+  <script src="/assembler.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
